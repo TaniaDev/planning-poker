@@ -1,0 +1,18 @@
+[project]
+name = "planning-poker"
+version = "0.0.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Tânia de Arruda", email = "develop.tania@gmail.com"},
+]
+dependencies = [
+    "fastapi>=0.112.1",
+    "uvicorn>=0.30.6",
+]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
