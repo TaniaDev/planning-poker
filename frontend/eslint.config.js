@@ -1,8 +1,9 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+import importPlugin from 'eslint-plugin-import';
+import globals from 'globals';
+import js from '@eslint/js';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config({
   extends: [js.configs.recommended, ...tseslint.configs.recommended],
@@ -15,6 +16,7 @@ export default tseslint.config({
   plugins: {
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
+    'import': importPlugin,
   },
   rules: {
     ...reactHooks.configs.recommended.rules,
@@ -22,5 +24,19 @@ export default tseslint.config({
       'warn',
       { allowConstantExport: true },
     ],
+    'import/order': [
+      'warn',
+      {
+        groups: [
+          ['builtin', 'external', 'internal'],
+          ['parent', 'sibling', 'index'],
+        ],
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc', caseInsensitive: true },
+      },
+    ],
+    'indent': ['warn', 2],
+    'quotes': ['warn', 'single'],
+    'semi': ['warn', 'always'],
   },
-})
+});
