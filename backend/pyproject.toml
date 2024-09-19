@@ -1,18 +1,25 @@
-[project]
-name = "planning-poker"
+[tool.poetry]
+name = "backend"
 version = "0.0.0"
-description = "Default template for PDM package"
-authors = [
-    {name = "Tânia de Arruda", email = "develop.tania@gmail.com"},
-]
-dependencies = [
-    "fastapi>=0.112.1",
-    "uvicorn>=0.30.6",
-]
-requires-python = "==3.10.*"
+description = ""
+authors = ["Tânia de Arruda <develop.tania@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-license = {text = "MIT"}
 
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.112.1"
+uvicorn = "^0.30.6"
 
-[tool.pdm]
-distribution = false
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+black = "^24.8.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
