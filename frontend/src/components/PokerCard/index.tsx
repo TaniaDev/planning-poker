@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Heart } from 'react-feather';
 
 import {
@@ -25,27 +25,21 @@ const PokerCard: React.FC<PokerCardProps> = ({
   pending = false,
   onClick,
 }) => {
-  const [isTurned, setIsTurned] = useState(turned);
-
-  useEffect(() => {
-    setIsTurned(turned);
-  }, [turned]);
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
-    if (!disabled && !pending) {
-      setIsTurned((prev) => !prev);
-    }
     if (onClick) onClick();
+    setIsClicked((prev) => !prev);
   };
 
   return (
-    <Container disabled={disabled} onClick={handleClick}>
+    <Container clicked={isClicked} disabled={disabled} onClick={handleClick}>
       {pending ? (
         <Pending />
       ) : (
         <>
           {disabled && <Overlay />}
-          <Card turned={isTurned}>
+          <Card turned={turned}>
             <Content turned>
               <InnerRectangle />
               {content}
