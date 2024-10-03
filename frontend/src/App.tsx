@@ -4,7 +4,7 @@ import reactLogo from './assets/react.svg';
 
 import viteLogo from '/vite.svg';
 import './App.css';
-import { PokerCard } from './components';
+import { Button, PokerCard } from './components';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -40,6 +40,12 @@ function App() {
           disabled={false}
           onClick={() => console.log('clicked')}
         />
+      </div>
+      <div className='component'>
+        <p className='custom-text'>Button</p>
+        <Button>
+          Click me
+        </Button>
       </div>
     </>
   );
